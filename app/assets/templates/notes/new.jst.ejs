@@ -1,0 +1,15 @@
+<form>
+  <input type="text" name="note[title]" id="note_title" placeholder="Title">
+  <br>
+
+  <textarea id="note_body" name="note[body]" placeholder="Start Typing A New Note"></textarea>
+  <br />
+
+  <button id="submit_button" class="btn">Submit</button>
+</form>
+
+<script type="text/javascript">
+  $(function(){
+    $('#note_body').autogrow();
+  });
+</script>

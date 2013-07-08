@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+button.delete{
+  float: right;
+  clear: right;
+}
+li.all_notes{
+  padding: 2px;
+  margin: 10px;
+  border: solid 1px;
+  height: 26px;
+  border-radius: 3px;
+}
+#note_title{
+  width: 80%;
+  border: none;
+  background-color: #ECF0F1;
+  box-shadow: none;
+  border: none;
+  border-bottom: solid 1px #BDC3C7;
+  border-radius: 0px;
+  width: 80%;
+  margin: 5px;
+  font-size: 24px;
+}
+#note_body{
+  width: 80%;
+  border: none;
+  background-color: #ECF0F1;
+  box-shadow: none;
+  border: none;
+  margin: 5px;
+}
+.heading{
+  background-color: #BDC3C7;
+}
+#greeting{
+  margin: 10px;
+}
+#leftPane{
+  float: left;
+  clear: left;
+  width: 30%;
+  margin: 10px;
+  border-right: solid black 1px;
+}
+#rightPane{
+  background-color: #ECF0F1;
+  float: right;
+  clear: right;
+  width: 65%;
+  margin: 10px;
+  border-radius: 5px;
+}
