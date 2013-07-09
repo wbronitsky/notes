@@ -61,7 +61,6 @@ Notes.Views.NotesShow = Backbone.View.extend({
     $h2.empty();
     $h2.text(newTitle);
 
-    console.log(newTitle);
     that.model.save({ note: {title: newTitle }});
   },
 

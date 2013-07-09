@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <ul class="nav nav-tabs heading">
-    <h5 id="greeting">Hello <%= current_user.email %></h5>
-  </ul>
+  <% if current_user %>
+    <ul class="nav nav-tabs heading">
+      <h5 id="greeting">Hello <%= current_user.email %></h5>
+    </ul>
+  <% end %>
   <%= yield %>
 
 </body>
