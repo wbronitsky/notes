@@ -6,8 +6,9 @@ Notes.Views.NotesShow = Backbone.View.extend({
     "dblclick .body": "editBody",
     "blur .title_input": "saveTitle",
     "blur .body_input": "saveBody",
-    "click #go_away": "close"
-
+    "click #go_away": "close",
+    "focus input#email": "populateInput",
+    "click input#share": "createShare",
   },
 
   initialize: function() {
@@ -36,7 +37,11 @@ Notes.Views.NotesShow = Backbone.View.extend({
       var newBody = droppedBody + "\n" + draggedBody;
 
       that.model.save({body: newBody});
-    }});
+    }
+  });
+    var $shareButtons = $showPage.find('.shareButton');
+    $shareButtons.draggable({revert:true});
+
     return that;
   },
 
@@ -78,5 +83,33 @@ Notes.Views.NotesShow = Backbone.View.extend({
 
   close: function(){
     Backbone.history.navigate('#', {trigger: true});
+  },
+
+  populateInput: function(event){
+    $.ajax({
+      url: '/users',
+      success: function(data){
+        var emails = _(data).map(function(user){
+          return user.email
+        });
+        $(event.target).typeahead({source: emails});
+      }
+    })
+  },
+
+  createShare: function(event){
+    event.preventDefault();
+    var formData = $('form#shareForm').serializeJSON();
+    $('input#email').val("");
+    $.ajax({
+      url: 'notes/'+$(event.target).data('id')+'/shares',
+      type: 'POST',
+      data: formData,
+      success: function(data){
+        $newShareButton = $("<div class='btn btn-small shareButton' data-shareId='"+data.note_id+"' data-id='"+data.id+"'>"+ data.user_email +"</div>")
+        $('div#sharesDiv').append($newShareButton);
+        $newShareButton.draggable({revert:true})
+      }
+    })
   }
 })

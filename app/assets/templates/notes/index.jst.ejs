@@ -1,3 +1,27 @@
 <div>
   <input type="text" placeholder="search" name="search" id="search_box" >
 </div>
+<div>
+  <% if (notes.length > 1) { %>
+    <h3>Your Last <%= notes.length %> Notes</h3>
+  <% } else if (notes.length === 1) { %>
+    <h3>Your Note</h3>
+  <% } else { %>
+    <h3>Make a New Note!</h3>
+  <% } %> 
+  <ul id="all_notes">
+    <% notes.each(function(note){ %>
+      <li class="all_notes" data-id="<%= note.id %>" data-body="<%= note.escape('body') %>"> 
+       <a href="#notes/<%= note.escape('id') %>" style="text-decoration:none;"><%= note.escape('title').slice(0,20) %></a>
+       </li>
+    <% }) %>
+  </ul>
+
+  <div id="trash">Trash</div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $('li.all_notes').draggable({revert: true});
+  })
+</script>

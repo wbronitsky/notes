@@ -21,6 +21,7 @@
 //= require jquery.ui.position
 //= require jquery.ui.draggable
 //= require jquery.ui.droppable
+//= require bootstrap
 //= require backbone
 //= require notes
 //= require_tree ../templates

@@ -1,12 +1,14 @@
 class NotesController < ApplicationController
   def index
     if params[:search] && params[:search] != "all" 
-      @notes = Note.basic_search(params[:search]).where(creator_id: current_user.id)
+      @notes = Note.basic_search(params[:search])
+                   .where(creator_id: current_user.id)
+                   .order('created_at DESC')
+                   .limit(10)
       @notes = current_user.notes if params[:search] == ""
     else
-      @notes = current_user.notes if current_user
+      @notes = current_user.notes.order('created_at DESC').limit(10) if current_user
     end
-
     if current_user
       respond_to do |f|
         f.html {render 'index'}

@@ -11,6 +11,25 @@
  *= require_self
  *= require_tree .
  */
+.header_button{
+  float: right;
+  margin: 5px;
+}
+#trash{
+  border: solid black 1px;
+  border-radius: 3px;
+  height: 10%;
+  text-align: center;
+  margin: 1%;
+}
+#shareForm{
+  float:right;
+}
+.share_box{
+  border: none;
+  background-color: #ECF0F1;
+  box-shadow: none;
+}
 button.delete{
   float: right;
   clear: right;
@@ -34,7 +53,6 @@ li.all_notes{
   border: none;
   background-color: #ECF0F1;
   box-shadow: none;
-  border: none;
   border-bottom: solid 1px #BDC3C7;
   border-radius: 0px;
   width: 80%;
@@ -54,6 +72,7 @@ li.all_notes{
 }
 #greeting{
   margin: 10px;
+  float: left;
 }
 #leftPane{
   float: left;

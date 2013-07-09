@@ -5,7 +5,7 @@ Notes.Views.AllNotes = Backbone.View.extend({
     var that = this;
 
     var renderedContent = that.template({
-      notes: data
+      notes: that.collection
     });
 
     that.$el.html(renderedContent);

@@ -2,6 +2,17 @@
   <h2 class="title"><%= note.escape('title') %></h2>
   <p class="body"><%= note.escape('body') %></p>
 
+  <div id="sharesDiv">
+    <% _(note.get('shares')).each(function(share){ %>
+      <div data-noteId="<%= share.note_id %>" data-id="<%= share.id %>" class="btn btn-small shareButton"><%= share.user_email %></div>
+    <% }) %>
+  </div>
+
+  <form id="shareForm">
+    <input name="email" placeholder="Share This Note" id="email" autocomplete="off" class="share_box">
+    <input type="submit" value="Share" class="btn btn-small" id="share" data-id="<%= note.id %>">
+  </form>
+
   <button id="go_away" class="btn btn-small">Close</button>
 </div>
 

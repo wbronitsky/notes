@@ -9,7 +9,8 @@
 <body>
   <% if current_user %>
     <ul class="nav nav-tabs heading">
-      <h5 id="greeting">Hello <%= current_user.email %></h5>
+      <p id="greeting">Hello <%= current_user.email %></p>
+      <a href="#notes/new" class="btn btn-small header_button">Create New Note</a>
     </ul>
   <% end %>
   <%= yield %>

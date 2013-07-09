@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :notes, foreign_key: :creator_id
+  has_many :shares
+  has_many :notes_shared_with, through: :shares, source: :note 
 end

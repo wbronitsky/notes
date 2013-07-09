@@ -22,6 +22,8 @@ Notes.Views.NotesNew = Backbone.View.extend({
     that.collection.create(attrs,
       {wait: true,
         success: function(model) {
+        var newModel = that.collection.pop();
+        that.collection.unshift(newModel);
         that.render();
       },
       error: function() {
