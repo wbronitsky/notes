@@ -2,12 +2,18 @@
   <h3>Your Notes</h3>
   <ul id="all_notes">
     <% notes.each(function(note){ %>
-      <li class="all_notes"> 
-        <a href="#notes/<%= note.escape('id') %>"><%= note.escape('title') %></a>
-        <button class="delete btn btn-small" data-id="<%= note.escape('id') %>">Delete Note</button>
-      </li>
+      <li class="all_notes" data-body="<%= note.escape('body') %>"> 
+       <a href="#notes/<%= note.escape('id') %>" style="text-decoration:none;"><%= note.escape('title').slice(0,20) %></a>
+        <button class="delete btn btn-small" data-id="<%= note.escape('id') %>">Delete</button>
+       </li>
     <% }) %>
   </ul>
 
   <a href="#notes/new" class="btn">Create New Note</a>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $('li.all_notes').draggable({revert: true});
+  })
+</script>

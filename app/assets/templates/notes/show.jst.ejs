@@ -1,4 +1,7 @@
-<h2 class="title"><%= note.escape('title') %></h2>
-<p class="body"><%= note.escape('body') %></p>
+<div id="show_page" data-body="<%= note.escape('body') %>">
+  <h2 class="title"><%= note.escape('title') %></h2>
+  <p class="body"><%= note.escape('body') %></p>
 
-<button id="go_away" class="btn btn-small">Close</button>
+  <button id="go_away" class="btn btn-small">Close</button>
+</div>
+

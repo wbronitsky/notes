@@ -14,6 +14,13 @@
 //= require jquery_ujs
 //= require underscore
 //= require jquery.serializeJSON.min
+//= require autogrow.min
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.mouse
+//= require jquery.ui.position
+//= require jquery.ui.draggable
+//= require jquery.ui.droppable
 //= require backbone
 //= require notes
 //= require_tree ../templates

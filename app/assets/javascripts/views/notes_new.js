@@ -22,7 +22,7 @@ Notes.Views.NotesNew = Backbone.View.extend({
     that.collection.create(attrs,
       {wait: true,
         success: function(model) {
-        Backbone.history.navigate('#', {trigger: true});
+        that.render();
       },
       error: function() {
         console.log("here");

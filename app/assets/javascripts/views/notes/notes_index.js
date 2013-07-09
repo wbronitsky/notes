@@ -43,24 +43,21 @@ Notes.Views.NotesIndex = Backbone.View.extend({
     var that = this;
 
     var searchQuery = $(event.target).val();
-    if (searchQuery){
-      that.collection.fetch({
-        url: '/notes',
-        dataType: 'json',
-        data: {search: searchQuery},
-        success: function(data){
-          if (data.length !== 0){
-            $('div#all_notes').empty();
-            $('div#all_notes').html(window.Notes.Store.allNotes.render(data).$el.html());
-            $('input#search_box').val(searchQuery);
-            setTimeout(function(){
-              $('input#search_box').focus();
-            },5)
-          }
+    that.collection.fetch({
+      url: '/notes',
+      dataType: 'json',
+      data: {search: searchQuery},
+      success: function(data){
+        if (data.length !== 0){
+          $('div#all_notes').empty();
+          $('div#all_notes').html(window.Notes.Store.allNotes.render(data).$el.html());
+          $('input#search_box').val(searchQuery);
+          setTimeout(function(){
+            $('input#search_box').focus();
+          },1)
         }
-      })
-    }
-    
+      }
+    })
   }
 
 });

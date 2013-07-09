@@ -1,11 +1,12 @@
 class NotesController < ApplicationController
   def index
-    if params[:search] && params[:search] != "all" && params[:search] != ""
+    if params[:search] && params[:search] != "all" 
       notes = Note.search do
         with :creator_id, 1
         fulltext "#{params[:search]}"
       end
       @notes = notes.results
+      @notes = current_user.notes if params[:search] == ""
     else
       @notes = current_user.notes
     end

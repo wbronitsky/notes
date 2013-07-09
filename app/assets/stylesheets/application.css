@@ -15,12 +15,19 @@ button.delete{
   float: right;
   clear: right;
 }
+ul.all_notes{
+
+}
 li.all_notes{
   padding: 2px;
   margin: 10px;
   border: solid 1px;
   height: 26px;
   border-radius: 3px;
+  background-color: #BDC3C7;
+  text-align: center;
+  list-style: none;
+  border-color: black;
 }
 #note_title{
   width: 80%;

@@ -7,6 +7,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
     "blur .title_input": "saveTitle",
     "blur .body_input": "saveBody",
     "click #go_away": "close"
+
   },
 
   initialize: function() {
@@ -15,6 +16,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
     that.listenTo(that.model, "destroy", function(){
       Backbone.history.navigate('#', {trigger: true});
     });
+    that.listenTo(that.model, "change", that.render)
   },
 
   render: function() {
@@ -24,7 +26,17 @@ Notes.Views.NotesShow = Backbone.View.extend({
       note: that.model
     });
 
-    that.$el.html(renderedContent);
+    this.$el.html(renderedContent);
+
+    var $showPage = $(this.$el.find('#show_page')[0]);
+    $showPage.droppable({accept: 'li.all_notes', drop: function(event){
+      console.log($(event.toElement).data('body'));
+      var draggedBody = $(event.toElement).data('body');
+      var droppedBody = that.model.escape('body');
+      var newBody = droppedBody + "\n" + draggedBody;
+
+      that.model.save({body: newBody});
+    }});
     return that;
   },
 
