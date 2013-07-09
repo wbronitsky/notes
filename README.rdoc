@@ -3,5 +3,5 @@ Simple One Page Note Taking App:
 Features: 
 * One page app using backbone framework with rails API
 * Notes are draggable into one another and it appends the text
-* Notes are fully searchable with solr search
+* Notes are fully searchable with textacular search
 * Login and user security enabled

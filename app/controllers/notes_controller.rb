@@ -4,7 +4,7 @@ class NotesController < ApplicationController
       @notes = Note.basic_search(params[:search]).where(creator_id: current_user.id)
       @notes = current_user.notes if params[:search] == ""
     else
-      @notes = current_user.notes
+      @notes = current_user.notes if current_user
     end
 
     if current_user
