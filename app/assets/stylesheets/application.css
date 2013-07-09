@@ -10,7 +10,12 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery-ui
+ *= require jquery.ui.tabs
  */
+#indexTabs{
+  
+}
 .header_button{
   float: right;
   margin: 5px;

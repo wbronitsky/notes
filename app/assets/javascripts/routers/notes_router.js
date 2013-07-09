@@ -1,8 +1,9 @@
 Notes.Routers.Notes = Backbone.Router.extend({
-  initialize: function($nav, $rootEl, notes){
+  initialize: function($nav, $rootEl, notes, sharedNotes){
     this.$nav = $nav
     this.$rootEl = $rootEl;
     this.notes = notes;
+    this.sharedNotes = sharedNotes
   },
 
   routes: {

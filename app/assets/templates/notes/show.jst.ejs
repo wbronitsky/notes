@@ -1,6 +1,6 @@
 <div id="show_page" data-body="<%= note.escape('body') %>">
-  <h2 class="title"><%= note.escape('title') %></h2>
-  <p class="body"><%= note.escape('body') %></p>
+  <h2 class="note_title"><%= note.escape('title') %></h2>
+  <p class="note_body"><%= note.escape('body') %></p>
 
   <div id="sharesDiv">
     <% _(note.get('shares')).each(function(share){ %>

@@ -1,4 +1,15 @@
 <div id="leftPane">
+  <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Your Notes</a></li>
+    <li class="tab2"><a href="#tabs-2">Shared Notes</a></li>
+  </ul>
+  <div id="tabs-1">
+  </div>
+  <div id="tabs-2">
+    <p>Hi</p>
+  </div>
+</div>
 </div>
 
 <div id="rightPane">
@@ -7,5 +18,6 @@
 <script type="text/javascript">
   $(function(){
     window.Notes.initialize($('#leftPane'), $('#rightPane'));
+    $('#tabs').tabs();
   });
 </script>

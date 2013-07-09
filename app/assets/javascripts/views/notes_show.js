@@ -2,8 +2,8 @@ Notes.Views.NotesShow = Backbone.View.extend({
   template: JST['notes/show'],
 
   events: {
-    "dblclick .title": "editTitle",
-    "dblclick .body": "editBody",
+    "dblclick .note_title": "editTitle",
+    "dblclick .note_body": "editBody",
     "blur .title_input": "saveTitle",
     "blur .body_input": "saveBody",
     "click #go_away": "close",
@@ -46,15 +46,15 @@ Notes.Views.NotesShow = Backbone.View.extend({
   },
 
   editTitle: function() {
-    var title = $('h2').text();
-    $('h2').empty();
-    $('h2').html("<input class='title_input' value='" + title +  "'>");
+    var title = $('h2.note_title').text();
+    $('h2.note_title').empty();
+    $('h2.note_title').html("<input class='title_input' value='" + title +  "'>");
   },
 
   editBody: function() {
-    var body = $('p').text();
-    $('p').empty();
-    $('p').html("<textarea class='body_input'>" + body + "</textarea>");
+    var body = $('p.note_body').text();
+    $('p.note_body').empty();
+    $('p.note_body').html("<textarea class='body_input'>" + body + "</textarea>");
   },
 
   saveTitle: function() {
@@ -62,7 +62,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
 
     var newTitle = $('input.title_input').val();
 
-    var $h2 = $('h2');
+    var $h2 = $('h2.note_title');
     $h2.empty();
     $h2.text(newTitle);
 
@@ -74,8 +74,8 @@ Notes.Views.NotesShow = Backbone.View.extend({
 
     var newBody = $('textarea.body_input').val();
 
-    $('p').empty();
-    $('p').text(newBody);
+    $('p.note_body').empty();
+    $('p.note_body').text(newBody);
 
     that.model.set({ note: {body: newBody }});
     that.model.save();
@@ -108,7 +108,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
       success: function(data){
         $newShareButton = $("<div class='btn btn-small shareButton' data-shareId='"+data.note_id+"' data-id='"+data.id+"'>"+ data.user_email +"</div>")
         $('div#sharesDiv').append($newShareButton);
-        $newShareButton.draggable({revert:true})
+        $newShareButton.draggable({revert:true});
       }
     })
   }

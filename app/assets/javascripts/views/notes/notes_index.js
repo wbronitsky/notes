@@ -23,8 +23,6 @@ Notes.Views.NotesIndex = Backbone.View.extend({
 
   render: function(){
     var that = this;
-    var allNotes = new Notes.Views.AllNotes({ collection: that.collection })
-    window.Notes.Store.allNotes = allNotes;
 
     var renderedContent = that.template({
       notes: that.collection
@@ -49,7 +47,9 @@ Notes.Views.NotesIndex = Backbone.View.extend({
           }
         })
       } else {
-        var noteId = $(event.toElement).data('id')
+        console.log(event.toElement);
+        var noteId = $(event.toElement).data('id');
+        console.log(noteId);
         var model = that.collection.get(parseInt(noteId));
         console.log(model);
 
