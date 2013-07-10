@@ -4,6 +4,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
   events: {
     "dblclick .note_title": "editTitle",
     "dblclick .note_body": "editBody",
+    "dblclick pre.markedDown": "editBody",
     "blur .title_input": "saveTitle",
     "blur .body_input": "saveBody",
     "click #go_away": "close",
@@ -35,10 +36,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
           conn.send('hello world')
         })
       })
-        
-      
     });
-    
   },
 
   render: function() {
@@ -73,8 +71,9 @@ Notes.Views.NotesShow = Backbone.View.extend({
   },
 
   editBody: function() {
-    var body = $('p.note_body').text();
+    var body = $('pre.markedDown').data('body');
     $('p.note_body').empty();
+    $('pre.markedDown').remove();
     $('p.note_body').html("<textarea class='body_input'>" + body + "</textarea>");
   },
 

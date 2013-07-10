@@ -13,6 +13,19 @@
  *= require jquery-ui
  *= require jquery.ui.tabs
  */
+.footer{
+  margin-left: 43%;
+  margin-right: 43%;
+  position: absolute;
+  bottom: 0;
+  font-size: 10px;
+  color: #BDC3C7;
+}
+.markedDown{
+  border: none;
+  background-color: #ECF0F1;
+  box-shadow: none;
+}
 .logo{
   float: left;
   font-weight: bold;
@@ -76,7 +89,6 @@ li.all_notes{
   border: none;
   background-color: #ECF0F1;
   box-shadow: none;
-  border: none;
   margin: 5px;
 }
 .heading{
