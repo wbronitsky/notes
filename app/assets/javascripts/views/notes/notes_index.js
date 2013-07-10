@@ -26,7 +26,12 @@ Notes.Views.NotesIndex = Backbone.View.extend({
 
       peer.on('connection', function(conn){
         conn.on('data', function(data){
-          that.render();
+          console.log('Got data:', data);
+          that.collection.fetch({
+            success: function(){
+              that.render();
+            }
+          });
         });
       });
     };

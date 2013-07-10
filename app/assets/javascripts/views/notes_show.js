@@ -21,7 +21,7 @@ Notes.Views.NotesShow = Backbone.View.extend({
 
     var peer = new Peer({key: '8x1tv0bso1jrlik9'});
     var currentId = this.model.get('creator_id');
-    
+    console.log(currentId)    
     
 
     this.listenTo(that.model, 'change', function(){
