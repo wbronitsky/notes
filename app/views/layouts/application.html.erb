@@ -10,6 +10,7 @@
 <body>
   <% if current_user %>
     <ul class="nav nav-tabs heading">
+      <div id="currentUser" data-id="<%=current_user.id%>"></div>
       <p class="logo">Simple-Note</p><p id="greeting">Hello <%= current_user.email %></p>
        <a href="/logout" class="btn btn-small header_button">Logout</a>
       <a href="#notes/new" class="btn btn-small header_button">Create New Note</a>

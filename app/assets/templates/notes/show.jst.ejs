@@ -4,7 +4,7 @@
 
   <div id="sharesDiv">
     <% _(note.get('shares')).each(function(share){ %>
-      <div data-noteId="<%= share.note_id %>" data-id="<%= share.id %>" class="btn btn-small shareButton"><%= share.user_email %></div>
+      <div data-noteId="<%= share.note_id %>" data-id="<%= share.id %>" data-userId="<%= share.user_id %>" class="btn btn-small shareButton"><%= share.user_email %></div>
     <% }) %>
   </div>
 

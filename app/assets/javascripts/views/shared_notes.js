@@ -19,6 +19,19 @@ Notes.Views.SharedNotes = Backbone.View.extend({
     that.listenTo(that.collection, 'add', that.render);
     that.listenTo(that.collection, 'change', that.render);
 
+    var myId = $('#currentUser').data('id');
+    var peer = new Peer(''+myId, {key: '8x1tv0bso1jrlik9'});
+
+    peer.on('connection', function(conn){
+      conn.on('data', function(data){
+        that.collection.fetch({
+          success: function(){
+            that.render();
+          }
+        });
+      });
+    });
+
   },
 
   render: function(searchResults){
@@ -52,7 +65,6 @@ Notes.Views.SharedNotes = Backbone.View.extend({
     var $trash = $(that.$el.find('div#trash'));
 
     $trash.droppable({accept: '.shareButton', drop: function(event){
-      console.log(event.toElement)
 
       var $shareButton = $(event.toElement);
       var shareId = $shareButton.data('id');
@@ -74,7 +86,6 @@ Notes.Views.SharedNotes = Backbone.View.extend({
 
     var searchQuery = $(event.target).val();
     var searchResults = that.collection.search(searchQuery);
-    console.log(searchResults);
     
     if (searchQuery == ""){
       that.render()

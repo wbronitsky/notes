@@ -20,14 +20,23 @@ Notes.Views.NotesShow = Backbone.View.extend({
     that.listenTo(that.model, "change", that.render);
 
     var peer = new Peer({key: '8x1tv0bso1jrlik9'});
-    var currentId = this.model.get('creator_id');
-    console.log(currentId);    
+    var currentId = this.model.get('creator_id');   
     
     this.listenTo(that.model, 'change', function(){
       var conn = peer.connect(''+currentId);
-      var callback = conn.on('open', function(){
+      conn.on('open', function(){
         conn.send('hello world!');
       });
+
+      $('.shareButton').each(function(){
+        var id = $(this).data('userid');
+        var conn = peer.connect(''+id);
+        conn.on('open', function(){
+          conn.send('hello world')
+        })
+      })
+        
+      
     });
     
   },
