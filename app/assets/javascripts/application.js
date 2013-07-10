@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require backbone.search
 //= require jquery.serializeJSON.min
 //= require jquery.ui.core
 //= require jquery.ui.widget

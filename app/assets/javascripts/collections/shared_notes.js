@@ -1,6 +1,6 @@
 Notes.Collections.SharedNotes = Backbone.Collection.extend({
   url: 'notes/shared',
-  model: Notes.Models.SharedNote,
+  model: Notes.Models.Note,
   search : function(letters){
     if(letters == "") return this;
  

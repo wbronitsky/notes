@@ -31,7 +31,6 @@ Notes.Views.SharedNotes = Backbone.View.extend({
         });
       });
     });
-
   },
 
   render: function(searchResults){
