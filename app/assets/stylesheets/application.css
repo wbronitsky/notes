@@ -13,8 +13,12 @@
  *= require jquery-ui
  *= require jquery.ui.tabs
  */
-#indexTabs{
-  
+.logo{
+  float: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px;
+  color: #3498DB;
 }
 .header_button{
   float: right;
@@ -26,6 +30,9 @@
   height: 10%;
   text-align: center;
   margin: 1%;
+  height: 40px;
+  background-color: #34495E;
+  color: #ECF0F1;
 }
 #shareForm{
   float:right;
@@ -76,7 +83,7 @@ li.all_notes{
   background-color: #BDC3C7;
 }
 #greeting{
-  margin: 10px;
+  margin: 5px;
   float: left;
 }
 #leftPane{
