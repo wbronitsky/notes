@@ -36,6 +36,7 @@ Notes.Routers.Notes = Backbone.Router.extend({
 
   new: function(){
     var that = this;
+    console.log('hello')
 
     var newNote = new Notes.Views.NotesNew({
       model: new Notes.Models.Note,
