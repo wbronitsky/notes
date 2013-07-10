@@ -8,7 +8,7 @@ window.Notes = {
     var that = this;
 
     var notes = new Notes.Collections.Notes;
-    var sharedNotes = new Notes.Collections.SharedNotes
+    var sharedNotes = new Notes.Collections.SharedNotes;
 
     notes.fetch({
       success: function(){

@@ -32,7 +32,6 @@ Notes.Views.SharedNotes = Backbone.View.extend({
 
     var $tab = $($('body').find('.tab2'));
     $tab.on('click', function(){
-      console.log('hi');
       that.collection.fetch({
         success: function(){
           that.render();
