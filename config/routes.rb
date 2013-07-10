@@ -8,7 +8,9 @@ Notes::Application.routes.draw do
     resources :shares, only: [:create, :destroy]
   end
 
-  put 'notes/share/:id', to: 'notes/:id'
-  get '/logout', to: 'devise/session#destroy'
+  put '/notes/shared/:id', to: 'notes#update'
+  devise_scope :user do
+    get '/logout', to: 'devise/sessions#destroy'
+  end
   root to: 'notes#index'
 end
