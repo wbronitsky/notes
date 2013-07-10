@@ -1,7 +1,13 @@
 Simple One Page Note Taking App:
 
+Outside Libraries and APIs
+* Backbone.js
+* WebRTC and PeerJS
+
 Features: 
 * One page app using backbone framework with rails API
+* Notes are shareable with other users
+* WebRTC enabled notes are auto-updated when edited by shared users
 * Notes are draggable into one another and it appends the text
-* Notes are fully searchable with textacular search
+* Notes are fully searchable with client side search search
 * Login and user security enabled
