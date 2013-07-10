@@ -2,7 +2,7 @@ Notes.Views.SharedNotes = Backbone.View.extend({
   template: JST['notes/shared'],
 
   events: {
-    "keyup #search_box": "search"
+    "keyup #shared_search_box": "search"
   },
 
   initialize: function(){
@@ -21,11 +21,21 @@ Notes.Views.SharedNotes = Backbone.View.extend({
 
   },
 
-  render: function(){
+  render: function(searchResults){
     var that = this;
 
+    if (searchResults){
+      if (searchResults.collection){
+        var data = searchResults.collection
+      } else {
+        var data = searchResults
+      }   
+    }  else {
+      var data = that.collection
+    };
+
     var renderedContent = that.template({
-      notes: that.collection
+      notes: data
     });
 
     that.$el.html(renderedContent);
@@ -63,15 +73,17 @@ Notes.Views.SharedNotes = Backbone.View.extend({
     var that = this;
 
     var searchQuery = $(event.target).val();
-    that.collection.fetch({
-      dataType: 'json',
-      data: {search: searchQuery},
-      success: function(){
-        that.render();
-        $('input#search_box').val(searchQuery);
-        $('input#search_box').focus();
-      }
-    })
-  }
+    var searchResults = that.collection.search(searchQuery);
+    console.log(searchResults);
+    
+    if (searchQuery == ""){
+      that.render()
+    } else {
+      that.render(searchResults);
+    };
 
+    $('input#shared_search_box').val(searchQuery);
+    $('input#shared_search_box').focus();
+    
+  }
 })

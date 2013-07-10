@@ -1,14 +1,7 @@
 class NotesController < ApplicationController
   def index
-    if params[:search] 
-      @notes = Note.basic_search(params[:search])
-                   .where(creator_id: current_user.id)
-                   .order('created_at DESC')
-                   .limit(10)
-      @notes = current_user.notes.order('created_at DESC').limit(10) if params[:search] == ""
-    else
-      @notes = current_user.notes.order('created_at DESC').limit(10) if current_user
-    end
+    @notes = current_user.notes.order('created_at DESC') if current_user
+    
     if current_user
       respond_to do |f|
         f.html {render 'index'}
@@ -40,17 +33,7 @@ class NotesController < ApplicationController
   end
 
   def shared
-    if params[:search] 
-      @notes = current_user.notes_shared_with
-                           .basic_search(params[:search])
-                           .order('created_at DESC')
-                           .limit(10)
-      @notes = current_user.notes_shared_with.order('created_at DESC').limit(10) if params[:search] == ""
-    else
-      @notes = current_user.notes_shared_with
-                           .order('created_at DESC')
-                           .limit(10)
-    end
+    @notes = current_user.notes_shared_with.order('created_at DESC') if current_user
 
     render json: @notes
   end

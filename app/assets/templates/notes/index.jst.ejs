@@ -9,14 +9,15 @@
   <% } else { %>
     <h3>Create a Note!</h3>
   <% } %> 
-  <ul id="all_notes">
-    <% notes.each(function(note){ %>
-      <li class="all_notes" data-id="<%= note.id %>" data-body="<%= note.escape('body') %>"> 
-       <a href="#notes/<%= note.escape('id') %>" style="text-decoration:none;"><%= note.escape('title').slice(0,20) %></a>
-       </li>
-    <% }) %>
-  </ul>
-
+  <% if (notes){ %>
+    <ul id="all_notes">
+      <% notes.each(function(note){ %>
+        <li class="all_notes" data-id="<%= note.id %>" data-body="<%= note.escape('body') %>"> 
+         <a href="#notes/<%= note.escape('id') %>" style="text-decoration:none;"><%= note.escape('title').slice(0,20) %></a>
+         </li>
+      <% }) %>
+    </ul>
+ <% } %>
   <div id="trash">Trash</div>
 </div>
 
