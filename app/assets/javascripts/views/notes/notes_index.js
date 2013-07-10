@@ -23,7 +23,7 @@ Notes.Views.NotesIndex = Backbone.View.extend({
       var currentId = this.collection.first().get('creator_id');
       console.log(currentId);
       
-      var peer = new Peer(currentId, {key: '8x1tv0bso1jrlik9'});
+      var peer = new Peer(''+currentId, {key: '8x1tv0bso1jrlik9'});
 
       peer.on('connection', function(conn){
         conn.on('data', function(data){

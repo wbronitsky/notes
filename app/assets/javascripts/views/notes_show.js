@@ -24,9 +24,8 @@ Notes.Views.NotesShow = Backbone.View.extend({
     console.log(currentId)    
     
     this.listenTo(that.model, 'change', function(){
-      var conn = peer.connect(currentId);
+      var conn = peer.connect(''+currentId);
       var callback = conn.on('open', function(){
-        console.log('hello you')
         conn.send('hello world!');
       });
     });
