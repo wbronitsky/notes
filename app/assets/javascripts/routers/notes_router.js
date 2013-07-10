@@ -25,6 +25,7 @@ Notes.Routers.Notes = Backbone.Router.extend({
 
   show: function(id){
     var that = this;
+    console.log('hello')
 
     var note = that.notes.findWhere({ id: parseInt(id) });
     var noteShow = new Notes.Views.NotesShow({
@@ -36,7 +37,6 @@ Notes.Routers.Notes = Backbone.Router.extend({
 
   new: function(){
     var that = this;
-    console.log('hello')
 
     var newNote = new Notes.Views.NotesNew({
       model: new Notes.Models.Note,
